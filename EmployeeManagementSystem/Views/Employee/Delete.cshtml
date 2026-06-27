@@ -1,0 +1,65 @@
+@model EmployeeManagementSystem.Models.Employee
+@{ ViewData["Title"] = "Delete Employee"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-danger mb-0"><i class="fas fa-trash me-2"></i>Delete Employee</h2>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i>Back</a>
+</div>
+
+<div class="card border-0 shadow-sm border-danger border-opacity-25">
+    <div class="card-body p-4">
+        <div class="alert alert-danger d-flex align-items-center gap-3 mb-4">
+            <i class="fas fa-exclamation-triangle fa-2x"></i>
+            <div>
+                <strong>This action is permanent.</strong>
+                <div class="small">Deleting this employee record cannot be undone. Consider deactivating instead.</div>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Full Name</span>
+                <strong>@Model.FullName</strong>
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Email</span>
+                <strong>@Model.Email</strong>
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Department</span>
+                <strong>@Model.Department</strong>
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Job Title</span>
+                <strong>@Model.JobTitle</strong>
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Salary</span>
+                <strong>₹@Model.Salary.ToString("N0")</strong>
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted small d-block">Date of Joining</span>
+                <strong>@Model.DateOfJoining.ToString("dd MMM yyyy")</strong>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger px-4">
+                    <i class="fas fa-trash me-1"></i>Yes, Delete Permanently
+                </button>
+            </form>
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary px-4">Cancel</a>
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <form asp-action="ToggleStatus" asp-route-id="@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-warning px-4">
+                        <i class="fas fa-ban me-1"></i>Deactivate Instead
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+/* ── Avatar Circles ──────────────────────────────────────────── */
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.avatar-circle-lg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* ── Detail Item ─────────────────────────────────────────────── */
+.detail-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* ── Navbar active link ──────────────────────────────────────── */
+.navbar-nav .nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255,255,255,0.8);
+}
+
+/* ── Table hover ─────────────────────────────────────────────── */
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.04);
+}
+
+/* ── Card subtle hover ───────────────────────────────────────── */
+.card {
+    transition: box-shadow 0.2s ease;
+}
+
+/* ── Badge subtle colors (Bootstrap 5.3 fallback) ───────────── */
+.bg-success-subtle { background-color: #d1e7dd !important; }
+.bg-danger-subtle  { background-color: #f8d7da !important; }
+
+/* ── Pagination ──────────────────────────────────────────────── */
+.pagination .page-link {
+    border-radius: 6px;
+    margin: 0 2px;
+    border: 1px solid #dee2e6;
+}
+
+/* ── Form controls focus ─────────────────────────────────────── */
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* ── Toast auto-hide ─────────────────────────────────────────── */
+.toast {
+    min-width: 280px;
+}
+
+/* ── Responsive table ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .navbar-brand { font-size: 1rem; }
+}
